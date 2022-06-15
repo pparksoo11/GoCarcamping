@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="56dp"
+    tools:context=".Map">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mapLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.naver.maps.map.MapView
+            android:id="@+id/map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <!--
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.MapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />-->
+
+        <FrameLayout
+            android:id="@+id/searLayout"
+            android:layout_width="360dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintLeft_toLeftOf="@+id/mapLayout"
+            app:layout_constraintRight_toRightOf="@+id/mapLayout"
+            app:layout_constraintTop_toTopOf="@+id/mapLayout">
+
+            <EditText
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_edge"
+                android:imeOptions="normal|actionSearch"
+                android:inputType="text" />
+
+            <ImageButton
+                android:id="@+id/sBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right|center"
+                android:background="@drawable/md_transparent"
+                android:src="@drawable/ic_baseline_search_24" />
+
+        </FrameLayout>
+
+        <HorizontalScrollView
+            android:id="@+id/chip_Layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="@+id/mapLayout"
+            app:layout_constraintTop_toBottomOf="@+id/searLayout">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/filterFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorSub"
+            android:src="@drawable/filter_list_24"
+            android:tint="@color/white"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainFab"
+            app:layout_constraintLeft_toLeftOf="@+id/mainFab"
+            app:layout_constraintRight_toRightOf="@+id/mainFab"
+            app:layout_constraintTop_toTopOf="@+id/mainFab" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/mapFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorSub"
+            android:src="@drawable/ic_baseline_directions_car_24"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainFab"
+            app:layout_constraintLeft_toLeftOf="@+id/mainFab"
+            app:layout_constraintRight_toRightOf="@+id/mainFab"
+            app:layout_constraintTop_toTopOf="@+id/mainFab" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/locaFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorSub"
+            android:src="@drawable/ic_baseline_my_location_24"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/mainFab"
+            app:layout_constraintLeft_toLeftOf="@+id/mainFab"
+            app:layout_constraintRight_toRightOf="@+id/mainFab"
+            app:layout_constraintTop_toTopOf="@+id/mainFab" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/mainFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/colorSub"
+            android:src="@drawable/ic_baseline_add_24"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--android:visibility="gone"-->
+    <LinearLayout
+        android:id="@+id/list_bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        app:behavior_fitToContents="false"
+        app:behavior_hideable="true"
+        app:behavior_peekHeight="45dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/openBtn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:background="#00ffffff"
+                android:src="@drawable/ic_baseline_arrow_upward_24" />
+
+            <ImageButton
+                android:id="@+id/closeBtn"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="10dp"
+                android:background="#00ffffff"
+                android:src="@drawable/ic_baseline_close_24" />
+
+        </FrameLayout>
+        <HorizontalScrollView
+            android:id="@+id/search_chip_Layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/search_chip_group"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"></com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mapRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="330dp" />
+    </LinearLayout>
+
+
+    <!--카드뷰 레이아웃 -->
+    <FrameLayout
+        android:id="@+id/totCardView"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/listBtn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="75dp"
+            android:background="@drawable/map_btn_style"
+            android:drawableStart="@drawable/ic_baseline_format_list_bulleted_24"
+            android:drawablePadding="0dp"
+            android:gravity="center"
+            android:padding="12dp"/>
+
+        <Button
+            android:id="@+id/searchMidBtn"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/map_btn_style"
+            android:drawableStart="@drawable/ic_baseline_search_24"
+            android:drawablePadding="0dp"
+            android:drawableTint="@color/colorBlack"
+            android:gravity="center"
+            android:padding="12dp"/>
+
+
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="10dp"
+            card_view:cardBackgroundColor="#ffffff"
+            card_view:cardCornerRadius="15dp"
+            card_view:cardElevation="4dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="15dp">
+
+                <ImageView
+                    android:id="@+id/detailImg"
+                    android:layout_width="160dp"
+                    android:layout_height="160dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/camping1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/detailTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="0dp"
+                    android:textSize="22sp"
+                    app:layout_constraintLeft_toRightOf="@id/detailImg"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/detailAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="17sp"
+                    app:layout_constraintLeft_toRightOf="@id/detailImg"
+                    app:layout_constraintTop_toBottomOf="@id/detailTitle" />
+
+                <androidx.appcompat.widget.AppCompatRatingBar
+                    android:id="@+id/detailStar"
+                    style="@style/CustomRatingBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:progressBackgroundTint="#FFCC01"
+                    android:progressTint="#FFCC01"
+                    android:rating="3"
+                    app:layout_constraintLeft_toRightOf="@id/detailImg"
+                    app:layout_constraintTop_toBottomOf="@id/detailAdd" />
+
+                <TextView
+                    android:id="@+id/detailNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="3"
+                    android:textSize="20sp"
+                    app:layout_constraintLeft_toRightOf="@id/detailStar"
+                    app:layout_constraintTop_toBottomOf="@id/detailAdd" />
+
+
+                <ImageView
+                    android:id="@+id/detailLike"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/like_full"
+                    app:layout_constraintLeft_toRightOf="@id/detailImg"
+                    app:layout_constraintTop_toBottomOf="@id/detailStar" />
+
+                <TextView
+                    android:id="@+id/detailLikeNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/num"
+                    android:textSize="20sp"
+                    app:layout_constraintLeft_toRightOf="@id/detailLike"
+                    app:layout_constraintTop_toBottomOf="@id/detailStar" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

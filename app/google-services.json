@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "248187767775",
+    "project_id": "goautocamping-549ca",
+    "storage_bucket": "goautocamping-549ca.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248187767775:android:3a9178201f0d7e89a7526a",
+        "android_client_info": {
+          "package_name": "com.example.GoAutoCamping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "248187767775-3tdq1dt38t6hrv56tq7eqt26pcu4ofpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_kkva90qkSW5ZYGfSCMqiSdfWg-NE2LI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "248187767775-3tdq1dt38t6hrv56tq7eqt26pcu4ofpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:248187767775:android:790eea74e6c00320a7526a",
+        "android_client_info": {
+          "package_name": "com.example.bottombartest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "248187767775-3tdq1dt38t6hrv56tq7eqt26pcu4ofpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_kkva90qkSW5ZYGfSCMqiSdfWg-NE2LI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "248187767775-3tdq1dt38t6hrv56tq7eqt26pcu4ofpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

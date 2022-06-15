@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:checkedButton="@+id/radio_button_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:theme="@style/Material"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+        <RadioButton
+            android:id="@+id/radio_button_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="지나친 욕설이나 비방"
+            />
+        <RadioButton
+            android:id="@+id/radio_button_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="음란성 또는 불건전한 게시물"/>
+        <RadioButton
+            android:id="@+id/radio_button_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="부적절한 홍보 게시물"/>
+        <RadioButton
+            android:id="@+id/radio_button_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="저작권 침해"/>
+        <RadioButton
+            android:id="@+id/radio_button_5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="기타"/>
+    </RadioGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnYes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="신고"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="10dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:theme="@style/Material"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="닫기"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup"
+        app:layout_constraintRight_toLeftOf="@+id/btnYes"
+
+        android:layout_marginTop="10dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:theme="@style/Material"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

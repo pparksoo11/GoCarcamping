@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize = "16sp"
+            android:text="@string/carMent" />
+        <ImageView
+            android:id="@+id/closeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="4dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_baseline_close_24" />
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center">
+        <!--
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/dialogMap"
+            android:name = "com.naver.maps.map.MapFragment"/>-->
+
+        <com.naver.maps.map.MapView
+            android:id="@+id/dialogMap"
+            android:layout_width="350dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textSize="15sp"
+        android:visibility="gone"/>
+    <Button
+        android:id="@+id/locationBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/custom_edge"
+        android:text="현 위치 로딩" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_edge"
+        android:text="@string/carLocation" />
+
+    <Button
+        android:id="@+id/searchBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textColor="#ffffff"
+        android:background="@drawable/map_disable_btn"
+        android:text="@string/carSearch"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="1"
+        android:shadowRadius="5"/>
+</LinearLayout>

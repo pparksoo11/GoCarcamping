@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0C9160</color>
+    <color name="colorPrimaryDark">#0C9160</color>
+    <color name="colorAccent">#0C9160</color>
+    <color name="colorHome">#AF71BA</color>
+    <color name="colorMap">#DE9DEA</color>
+    <color name="colorRecommend">#8ACCEA</color>
+    <color name="colorCommunity">#F8C983</color>
+    <color name = "colorSub">#EAC100</color>
+    <color name = "colorChip">#D8B200</color>
+    <color name="colorBlack">#000000</color>
+    <color name="white">#FFFFFF</color>
+</resources>

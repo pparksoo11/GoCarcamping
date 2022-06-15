@@ -1,0 +1,54 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--NoActionBar : 기존 액션바 해제 -->
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+    <style name="Material" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="MaterialFilterChip" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/colorChip</item>
+        <item name="colorOnPrimary">@color/colorBlack</item>
+
+    </style>
+
+
+    <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+       <item name="android:windowFullscreen">false</item>
+        <item name="colorPrimary">#00000000</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+
+    <style name = "CustomRatingBarStyle" parent="Widget.AppCompat.RatingBar">
+        <item name = "android:progressDrawable">@drawable/rating_custom</item>
+        <item name ="android:minHeight">20dip</item>
+        <item name ="android:maxHeight">40dip</item>
+        <item name = "backgroundTint">@color/colorSub</item>
+    </style>
+
+    <style name = "CustomRatingBarStyle2" parent="Widget.AppCompat.RatingBar.Indicator">
+        <item name = "android:progressDrawable">@drawable/rating_custom2</item>
+        <item name ="android:minHeight">50dip</item>
+        <item name ="android:maxHeight">70dip</item>
+        <item name = "backgroundTint">@color/colorSub</item>
+    </style>
+
+    <style name="CustomBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheetStyle</item>
+    </style>
+
+    <style name="CustomBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+    
+</resources>

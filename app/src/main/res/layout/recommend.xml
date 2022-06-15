@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="55dp"
+    tools:context=".Recommend"
+    android:background="#fff">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <!--
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="290dp"
+            android:layout_height="40dp"
+            android:background="@drawable/custom_edge"
+            android:drawableLeft="@drawable/ic_baseline_pin_drop_24"
+            android:drawablePadding="5dp"
+            android:text="어디로 여행가세요?"
+            android:textColor="#aaaaaa"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.001" />
+    -->
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:drawableLeft="@drawable/ic_baseline_pin_drop_24"
+        android:text="어디로 여행가세요?"
+        android:textStyle="bold"
+        android:textColor="#777777"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
+        android:text="원하는 지역의 마커를 클릭해보세요!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <ImageView
+        android:id="@+id/mapImg"
+        android:layout_width="377dp"
+        android:layout_height="620dp"
+        android:layout_marginBottom="4dp"
+        android:src="@drawable/mapui"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.705"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnGWD"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_place_24"
+        app:layout_constraintBottom_toBottomOf="@+id/mapImg"
+        app:layout_constraintEnd_toEndOf="@+id/mapImg"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="@+id/mapImg"
+        app:layout_constraintTop_toTopOf="@+id/mapImg"
+        app:layout_constraintVertical_bias="0.218" />
+
+    <Button
+        android:id="@+id/btnSeoul"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_place_24"
+        app:layout_constraintBottom_toBottomOf="@+id/mapImg"
+        app:layout_constraintEnd_toEndOf="@+id/mapImg"
+        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintStart_toStartOf="@+id/mapImg"
+        app:layout_constraintTop_toTopOf="@+id/mapImg"
+        app:layout_constraintVertical_bias="0.251" />
+
+    <Button
+        android:id="@+id/btnGGD"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_place_24"
+        app:layout_constraintBottom_toBottomOf="@+id/mapImg"
+        app:layout_constraintEnd_toEndOf="@+id/mapImg"
+        app:layout_constraintHorizontal_bias="0.281"
+        app:layout_constraintStart_toStartOf="@+id/mapImg"
+        app:layout_constraintTop_toTopOf="@+id/mapImg"
+        app:layout_constraintVertical_bias="0.332" />
+
+    <Button
+        android:id="@+id/btnCCBD"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_place_24"
+        app:layout_constraintBottom_toBottomOf="@+id/mapImg"
+        app:layout_constraintEnd_toEndOf="@+id/mapImg"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/mapImg"
+        app:layout_constraintTop_toTopOf="@+id/mapImg"
+        app:layout_constraintVertical_bias="0.416" />
+
+    <Button
+        android:id="@+id/btnCCND"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_place_24"
+        app:layout_constraintBottom_toBottomOf="@+id/mapImg"
+        app:layout_constraintEnd_toEndOf="@+id/mapImg"
+        app:layout_constraintHorizontal_bias="0.202"
+        app:layout_constraintStart_toStartOf="@+id/mapImg"
+        app:layout_constraintTop_toTopOf="@+id/mapImg"
+        app:layout_constraintVertical_bias="0.451" />
+
+    <Button
+        android:id="@+id/btnGSBD"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_place_24"
+        app:layout_constraintBottom_toBottomOf="@+id/mapImg"
+        app:layout_constraintEnd_toEndOf="@+id/mapImg"
+        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintStart_toStartOf="@+id/mapImg"
+        app:layout_constraintTop_toTopOf="@+id/mapImg"
+        app:layout_constraintVertical_bias="0.498" />
+
+    <Button
+        android:id="@+id/btnGSND"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_place_24"
+        app:layout_constraintBottom_toBottomOf="@+id/mapImg"
+        app:layout_constraintEnd_toEndOf="@+id/mapImg"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/mapImg"
+        app:layout_constraintTop_toTopOf="@+id/mapImg"
+        app:layout_constraintVertical_bias="0.651" />
+
+    <Button
+        android:id="@+id/btnJLBD"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_place_24"
+        app:layout_constraintBottom_toBottomOf="@+id/mapImg"
+        app:layout_constraintEnd_toEndOf="@+id/mapImg"
+        app:layout_constraintHorizontal_bias="0.253"
+        app:layout_constraintStart_toStartOf="@+id/mapImg"
+        app:layout_constraintTop_toTopOf="@+id/mapImg"
+        app:layout_constraintVertical_bias="0.594" />
+
+    <Button
+        android:id="@+id/btnJLND"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_place_24"
+        app:layout_constraintBottom_toBottomOf="@+id/mapImg"
+        app:layout_constraintEnd_toEndOf="@+id/mapImg"
+        app:layout_constraintHorizontal_bias="0.227"
+        app:layout_constraintStart_toStartOf="@+id/mapImg"
+        app:layout_constraintTop_toTopOf="@+id/mapImg"
+        app:layout_constraintVertical_bias="0.724" />
+
+    <Button
+        android:id="@+id/btnJeju"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/ic_baseline_place_24"
+        app:layout_constraintBottom_toBottomOf="@+id/mapImg"
+        app:layout_constraintEnd_toEndOf="@+id/mapImg"
+        app:layout_constraintHorizontal_bias="0.195"
+        app:layout_constraintStart_toStartOf="@+id/mapImg"
+        app:layout_constraintTop_toTopOf="@+id/mapImg"
+        app:layout_constraintVertical_bias="0.896" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

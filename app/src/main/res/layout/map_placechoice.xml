@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+        <androidx.appcompat.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/placetoolBar"
+            android:layout_width="wrap_content"
+            android:layout_height = "wrap_content"
+            android:contentInsetStart="0dp"
+            app:contentInsetStart="0dp"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center"
+            >
+            <EditText
+                android:id="@+id/edit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/custom_edge"
+                android:imeOptions = "normal|actionSearch"
+                android:inputType="text"
+                android:hint = "장소명"/>
+
+            <ImageButton
+                android:id="@+id/button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_baseline_search_24"
+                android:background="@drawable/md_transparent"
+                android:layout_gravity="right|center"/>
+
+        </FrameLayout>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/placeAddBtn"
+        android:text="주소 직접 입력"
+        android:textColor="#FFFFFF"
+        android:textSize="13sp"
+        android:layout_width="110dp"
+        android:layout_height="35dp"
+        android:background="@drawable/map_place_choice_btn"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="3"
+        android:shadowRadius="5"
+        android:layout_gravity="right"
+        />
+    <!--
+    <Button
+        android:id="@+id/placeAddBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "주소 직접 입력"
+        android:layout_gravity="right"
+        android:textSize = "13sp"
+        style="?attr/materialButtonOutlinedStyle"
+        android:textColor="@color/white"
+
+        app:backgroundTint = "@color/colorSub"
+        app:strokeColor = "@color/colorSub"
+        app:strokeWidth = "1dp"/>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/itemListView"
+        android:layout_marginTop = "5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

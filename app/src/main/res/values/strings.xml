@@ -1,0 +1,89 @@
+<resources>
+    <string name="app_name">GO차박</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_home_fragment">Hello home fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_map_fragment">Hello map fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name = "map">지도</string>
+    <string name = "recommend">장소추천</string>
+    <string name = "home">홈</string>
+    <string name = "supplies">용품</string>
+    <string name = "community">커뮤니티</string>
+
+    <string name = "logout">로그아웃</string>
+    <!--로그인-->
+    <string name = "id">ID</string>
+    <string name = "pw">P/W</string>
+    <string name ="login">로그인</string>
+    <string name = "kkao">카카오톡</string>
+    <string name = "signin">회원가입</string>
+
+    <string name = "find">찾기</string>
+    <string name = "idFind">ID 찾기</string>
+    <string name = "pwFind">P/W 찾기</string>
+    <string name = "skip">건너뛰기</string>
+
+    <string name = "IdFind">아이디 찾기</string>
+    <string name = "PwFind">비밀번호 찾기</string>
+    <string name = "PwChange">비밀번호 변경</string>
+
+    <string name = "name">이름</string>
+    <string name = "birth">생년월일</string>
+    <string name = "phone">전화번호</string>
+    <string name = "Id">아이디</string>
+    <string name = "Pw">비밀번호</string>
+    <string name = "PwCk">비밀번호 확인</string>
+    <string name = "nickName">닉네임</string>
+    <string name = "email">이메일</string>
+    <string name = "doubleck">중복확인</string>
+    <string name = "codeNot"><u>인증번호가 오지않아요!</u></string>
+    <string name = "sign">가입하기</string>
+
+    <string name = "findpwDes">이메일 혹은 전화번호 인증을 통해\n비밀번호를 재설정할 수 있습니다</string>
+    <string name = "findBtn">찾기</string>
+    <string name = "changeBtn">변경</string>
+
+    <!--지도-->
+    <string name = "carMent">해당 위치로 검색하겠습니까?</string>
+    <string name = "carLocation">위치 선택</string>
+    <string name = "carSearch">차박 검색</string>
+    <string name = "num">(0)</string>
+    <string name = "progressMent">차박 가능 여부를 조회 중입니다.</string>
+    <string name = "progressStop">중지</string>
+    <string name = "progressContinue">다시 검색</string>
+
+    <!--용퓸-->
+    <string name = "light">조명</string>
+    <string name ="life">생활</string>
+    <string name = "cook">취사</string>
+    <string name = "etc">기타</string>
+
+    <!--장소추천-->
+    <string name = "ggd">경기도</string>
+    <string name ="hot">HOT!</string>
+    <string name = "recommendMent">추천해드릴게요!</string>
+    <string name = "filterMent">필터를 선택해주세요</string>
+
+    <!--장소추천 필터-->
+    <string name = "filterName">필터</string>
+    <string name = "filterTheme">테마</string>
+    <string name = "mountain">산</string>
+    <string name = "river">강</string>
+    <string name = "sea">바다</string>
+    <string name = "valley">계곡</string>
+    <string name = "camp">캠핑장</string>
+    <string name = "park">공원</string>
+    <string name = "parking">주차장</string>
+
+    <string name = "filterFacility">시설</string>
+    <string name = "toilet">화장실</string>
+    <string name = "shower">샤워실</string>
+    <string name = "cooking">취사</string>
+    <string name = "store">매점</string>
+
+    <string name = "clean">초기화</string>
+    <string name = "apply">적용</string>
+</resources>
