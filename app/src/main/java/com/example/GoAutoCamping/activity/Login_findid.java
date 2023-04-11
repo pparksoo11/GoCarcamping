@@ -88,33 +88,36 @@ public class Login_findid extends AppCompatActivity {
         //이름
         name_findid.addTextChangedListener(new TextWatcher() {
             @Override //텍스트 변경전 호출
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override //텍스트 변경시마다 호출
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String text = name_findid.getText().toString();
-                if(text.equals("")){
+                if (TextUtils.isEmpty(text)) {
                     nameL_findid.setError("필수 입력입니다");
-                }else{
+                } else {
                     nameL_findid.setErrorEnabled(false);
                 }
             }
 
             @Override //텍스트 변경 이후 호출
-            public void afterTextChanged(Editable s) { }
+            public void afterTextChanged(Editable s) {
+            }
         });
 
         //전화번호
         phoneNum_findid.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String text = phoneNum_findid.getText().toString();
-                if(text.equals("")){
+                if (TextUtils.isEmpty(text)) {
                     phoneNumL_findid.setError("필수 입력입니다");
-                }else{
+                } else {
                     phoneNumL_findid.setErrorEnabled(false);
                 }
             }
@@ -128,27 +131,29 @@ public class Login_findid extends AppCompatActivity {
         //인증번호
         code_findid.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String text = code_findid.getText().toString();
-                if(text.equals("")){
+                if (TextUtils.isEmpty(text)) {
                     codeL_findid.setError("필수 입력입니다");
-                }else{
+                } else {
                     codeL_findid.setErrorEnabled(false);
                 }
             }
 
             @Override
-            public void afterTextChanged(Editable s) { }
+            public void afterTextChanged(Editable s) {
+            }
         });
 
 
         btnSendCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validateForm()){
+                if (validateForm()) {
                     name = name_findid.getText().toString();
                     phone = phoneNum_findid.getText().toString();
                     startPhoneNumberVerification(phone);
@@ -160,7 +165,7 @@ public class Login_findid extends AppCompatActivity {
         btnResendCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validateForm()){
+                if (validateForm()) {
                     name = name_findid.getText().toString();
                     phone = phoneNum_findid.getText().toString();
                     resendVerificationCode(phone, mResendToken);
@@ -171,7 +176,7 @@ public class Login_findid extends AppCompatActivity {
         btnfindid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validateForm()){
+                if (validateForm()) {
 
                     code = code_findid.getText().toString();
 
@@ -225,21 +230,18 @@ public class Login_findid extends AppCompatActivity {
         //코드
         String code = code_findid.getText().toString();
 
-        if(TextUtils.isEmpty(name)){
+        if (TextUtils.isEmpty(name)) {
             valid = false;
             name_findid.requestFocus();
             imm.showSoftInput(name_findid, InputMethodManager.SHOW_IMPLICIT);
-        }
-        else if(TextUtils.isEmpty(phonenum)){
+        } else if (TextUtils.isEmpty(phonenum)) {
             valid = false;
             phoneNum_findid.requestFocus();
             imm.showSoftInput(phoneNum_findid, InputMethodManager.SHOW_IMPLICIT);
-        }
-        else if(TextUtils.isEmpty(code)){
+        } else if (TextUtils.isEmpty(code)) {
             code_findid.requestFocus();
             imm.showSoftInput(code_findid, InputMethodManager.SHOW_IMPLICIT);
-        }
-        else{
+        } else {
             //mBinding.fieldPassword.setError(null);
         }
 
@@ -248,7 +250,7 @@ public class Login_findid extends AppCompatActivity {
 
     //인증번호 전송하기
     private void startPhoneNumberVerification(String phoneNumber) {
-        String phonenum = "+82"+phoneNumber;
+        String phonenum = "+82" + phoneNumber;
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(FireAuth)
                         .setPhoneNumber(phonenum)       // Phone number to verify
@@ -308,20 +310,22 @@ public class Login_findid extends AppCompatActivity {
                 });
     }
 
-    private void checkPhoneVerification(boolean phoneVerified){
-        if(phoneVerified){
+    private void checkPhoneVerification(boolean phoneVerified) {
+        if (phoneVerified) {
             //계정삭제
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-            user.delete()
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                Log.d("계정 삭제해야함", "전번 계정 삭제");
+            if (user != null) {
+                user.delete()
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Log.d("계정 삭제해야함", "전번 계정 삭제");
+                                }
                             }
-                        }
-                    });
+                        });
+            }
 
             //아이디 정보 찾아오기
             Firestore.collection("users").whereEqualTo("userPhone", phone).whereEqualTo("userName", name)
@@ -346,23 +350,21 @@ public class Login_findid extends AppCompatActivity {
                                     return null;
                                 });
                                 dialog.show();
-                            }
-                            else {
+                            } else {
                                 Log.d("TAG", "Error getting documents: ", task.getException());
                             }
 
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Log.d("왜 안됌", "되는건가?");
-                }
-            });
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.d("왜 안됌", "되는건가?");
+                        }
+                    });
 
 
-        }
-        else{
+        } else {
             //올바르지 않다고 표기
         }
     }

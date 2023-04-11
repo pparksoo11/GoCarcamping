@@ -21,7 +21,6 @@ public class Map_RecyclerAdapter extends RecyclerView.Adapter<Map_RecyclerAdapte
 
     List<Map_placedata> placeData;
     private Activity activity;
-    private MainActivity ma;
     private int localDataSize;
 
     //08.10 addItem nullpoint 문제 해결 해야됨

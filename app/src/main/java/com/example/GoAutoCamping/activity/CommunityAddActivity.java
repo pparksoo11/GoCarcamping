@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -64,7 +65,6 @@ public class CommunityAddActivity extends AppCompatActivity {
 
     int REQUEST_IMAGE_CODE = 1001;
     int REQUEST_EXTERNAL_STORAGE_PERMISSION = 1002;
-    String STATE_IMAGE = "StoreImage";
 
     CoordinatorLayout snackbar;
     ImageView image_address;
@@ -80,12 +80,9 @@ public class CommunityAddActivity extends AppCompatActivity {
     private FirebaseAuth user;
     private float starNum;
 
-    Context context;
-
     String userNickName,userProfile;
 
     byte[] img;
-    String place;
 
     Bitmap bitmap;
 
@@ -103,7 +100,6 @@ public class CommunityAddActivity extends AppCompatActivity {
     String postId, address, content, id, image, nickName, profile, uploadTime, rec2, home, word;
     Float star;
     int like, pos2;
-    ArrayList<String> likeNames;
 
     String Add, title = "이름";
     Float Lat, Lng;
@@ -201,7 +197,7 @@ public class CommunityAddActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //게시물 내용 예외처리
-                if(editContent.getText().toString().equals("")) {
+                if(TextUtils.isEmpty(editContent.getText().toString())) {
                     Snackbar.make(snackbar, "게시물의 내용을 작성해주세요", Snackbar.LENGTH_SHORT).show();
                 }
 

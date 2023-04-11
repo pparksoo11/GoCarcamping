@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -62,23 +63,16 @@ public class MainActivity extends AppCompatActivity {
     private String email;
     private long backBtnTime = 0;
 
-    public static Context mContext;
     Toolbar toolbar;
     //내정보
     TextView name, myPostBtn, myInfoBtn, noticeBtn;
     Button btnLogout, btnMark;
     ImageView profile_image;
 
-    ListView listview;
-    String[] itemList = {"내 정보 수정", "내 게시물", "즐겨찾기", "공지사항"};
-    //baseAdapter adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mContext = this;
 
         //툴바생성
         toolbar = findViewById(R.id.toolBar);
@@ -98,40 +92,6 @@ public class MainActivity extends AppCompatActivity {
         home.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().add(R.id.main_frame, home).commit();
 
-        /*
-        listview = findViewById(R.id.menu_list);
-        adapter = new baseAdapter();
-        listview.setAdapter(adapter);
-
-
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = null;
-                switch (itemList[i]) {
-                    case "내 정보 수정":
-                        intent = new Intent(MainActivity.this, Information_modi.class);
-                        startActivity(intent);
-                        ;
-                        break;
-                    case "내 게시물":
-                        intent = new Intent(MainActivity.this, Information_post.class);
-                        startActivity(intent);
-                        ;
-                        break;
-                    case "즐겨찾기":
-                        intent = new Intent(MainActivity.this, Information_Mark.class);
-                        startActivity(intent);
-                        ;
-                        break;
-                    case "공지사항":
-                        intent = new Intent(MainActivity.this, Information_notice.class);
-                        startActivity(intent);
-                        ;
-                        break;
-                }
-            }
-        });*/
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -175,7 +135,6 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(listener);
 
         //내정보 네비게이션 드로어
-
         btnMark = findViewById(R.id.btnMark);
         myPostBtn = findViewById(R.id.myPostTv);
         myInfoBtn = findViewById(R.id.myInfoTv);
@@ -190,8 +149,6 @@ public class MainActivity extends AppCompatActivity {
         myInfoBtn.setOnClickListener(infoControl);
         noticeBtn.setOnClickListener(infoControl);
         btnLogout.setOnClickListener(infoControl);
-
-
     }
 
 
@@ -355,7 +312,6 @@ public class MainActivity extends AppCompatActivity {
                 FragmentManager activity = getSupportFragmentManager();
                 activity.popBackStack();
 
-
                 return true;
             }
 
@@ -372,7 +328,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser currentUser = user.getCurrentUser();
         if (currentUser != null) {
             email = currentUser.getEmail();
-            if(!email.equals("")){
+            if(!TextUtils.isEmpty(email)){
                 //사용자 정보가져오기
                 DocumentReference docRef = Firestore.collection("users").document(email);
                 docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -393,9 +349,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
             }
-
-
-
         }
         else{
             btnLogout.setText("로그인 화면으로");
@@ -415,7 +368,6 @@ public class MainActivity extends AppCompatActivity {
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     UserDTO userDTO = documentSnapshot.toObject(UserDTO.class);
                     btnMark.setText(userDTO.getUserFavorite().size() + "건");
-
                 }
             });
         }
@@ -455,34 +407,6 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         backFlag = false;
     }
-
-    /*
-    class baseAdapter extends BaseAdapter {
-        @Override
-        public int getCount() {
-            return itemList.length;
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return itemList[i];
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return i;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.main_navdraw_item,viewGroup,false);
-
-            TextView tv = view.findViewById(R.id.itemText);
-
-            tv.setText(itemList[i]);
-
-            return view;
-        }*/
 }
 
 
