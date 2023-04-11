@@ -12,13 +12,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -28,6 +23,16 @@ import android.widget.Toast;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.example.GoAutoCamping.activity.Information_Mark;
+import com.example.GoAutoCamping.activity.Information_modi_login;
+import com.example.GoAutoCamping.activity.Information_notice;
+import com.example.GoAutoCamping.activity.Information_post;
+import com.example.GoAutoCamping.data.UserDTO;
+import com.example.GoAutoCamping.fragment.CommunityFragment;
+import com.example.GoAutoCamping.fragment.HomeFragment;
+import com.example.GoAutoCamping.fragment.MapFragment;
+import com.example.GoAutoCamping.fragment.RecommendFragment;
+import com.example.GoAutoCamping.fragment.SuppliesFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,10 +41,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
     private boolean backFlag = false, btomFlag = false;
     public ImageView alert; //알람설정
-    int pointY = 0;
+    public int pointY = 0;
 
     private boolean isCreated = false;
 
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         //바텀네비 - 하단
         bottomNavigationView = findViewById(R.id.nav_view);
         bottomNavigationView.setSelectedItemId(R.id.item_fragment_home);
-        Home home = new Home();
+        HomeFragment home = new HomeFragment();
         Bundle bundle = new Bundle(); // 파라미터의 숫자는 전달하려는 값의 갯수
         bundle.putInt("pop", 0);
         home.setArguments(bundle);
@@ -137,23 +138,23 @@ public class MainActivity extends AppCompatActivity {
                 switch (menuItem.getItemId()) {
                     case R.id.item_fragment_home:
                         isCreated = false;
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new Home()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new HomeFragment()).commit();
                         break;
                     case R.id.item_fragment_map:
                         isCreated = false;
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new Map()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new MapFragment()).commit();
                         break;
                     case R.id.item_fragment_recommend:
                         isCreated = false;
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new Recommend()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new RecommendFragment()).commit();
                         break;
                     case R.id.item_fragment_community:
                         isCreated = true;
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new Community(), "comm").commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new CommunityFragment(), "comm").commit();
                         break;
                     case R.id.item_fragment_campingSupplies:
                         isCreated = false;
-                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new Supplies()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new SuppliesFragment()).commit();
                         break;
                 }
                 return true;
@@ -296,7 +297,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 10){
             if(data.getIntExtra("name", 1) == 1 && isCreated){
-                ((Community)getSupportFragmentManager().findFragmentByTag("comm")).load();
+                ((CommunityFragment)getSupportFragmentManager().findFragmentByTag("comm")).load();
             }
         }
     }

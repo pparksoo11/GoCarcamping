@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FAFAFA"
-    tools:context=".Recommend_gwd">
+    tools:context=".fragment.Recommend_gwd">
 
     <!-- TODO: Update blank fragment layout -->
 

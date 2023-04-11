@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="56dp"
-    tools:context=".Map">
+    tools:context=".fragment.MapFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
